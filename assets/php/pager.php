@@ -81,13 +81,13 @@ Class Pager
   // 戻るボタンのリンク取得
   public function createPrevLink($currentPage) {
     $prevNum =  max($currentPage - 1, 1);
-    echo $this->pagePath . '?' . $this->param . '=' . $prevNum;
+    $this->createPagerLink($prevNum);
   }
 
   // 次へボタンのリンク取得
   public function createNextLink($currentPage, $totalPage) {
     $nextNum = min($currentPage + 1, $totalPage);
-    echo $this->pagePath . '?' . $this->param . '=' . $nextNum;
+    $this->createPagerLink($nextNum);
   }
 
   // ページャーのリンク作成
