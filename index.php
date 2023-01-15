@@ -1,11 +1,13 @@
 <?php
   ini_set('display_errors', 'On');
+  include $_SERVER['DOCUMENT_ROOT'] . '/assets/php/helper.php';
   include $_SERVER['DOCUMENT_ROOT'] . '/assets/php/pager.php';
+  $helper = new Helper();
   $pager = new Pager(3, 2, 'page');
   $json = $_SERVER['DOCUMENT_ROOT'] . '/assets/data/test.json';
   // ----- 記事データの処理 -----
   $currentPage = $pager->getCurrentPage();
-  $data = $pager->getData($json);
+  $data = $helper->getData($json);
   $totalPage = $pager->getTotalPage($data);
   $pager->checkParam($totalPage, './index.php');
   // ----- ページャーの処理 -----

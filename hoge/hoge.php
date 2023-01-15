@@ -1,10 +1,12 @@
 <?php
 ini_set('display_errors', 'On');
-include $_SERVER['DOCUMENT_ROOT'] . '/assets/php/function.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/assets/php/helper.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/assets/php/article.php';
 $json = $_SERVER['DOCUMENT_ROOT'] . '/assets/data/test.json';
-$data = getData($json);
-$currentUri = getCurrentUri();
-$article = getArticleData($data,$currentUri);
+$helper = new Helper();
+$data = $helper->getData($json);
+$endUri = $helper->getEndUri();
+$article = getArticleData($data,$endUri);
 ?>
 <!DOCTYPE html>
 <html lang="ja">
