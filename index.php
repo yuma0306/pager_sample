@@ -12,8 +12,6 @@
   $pager->checkParam($totalPage, './index.php');
   // ----- ページャーの処理 -----
   $pagerStart = $pager->getStartPagerNum($currentPage);
-  var_dump($pagerStart);
-  var_dump($pager->pageRange);
   $pagerEnd = $pager->getEndPagerNum($currentPage, $totalPage);
 ?>
 <!DOCTYPE html>
