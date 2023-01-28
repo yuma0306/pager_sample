@@ -3,7 +3,7 @@
   include $_SERVER['DOCUMENT_ROOT'] . '/assets/php/helper.php';
   include $_SERVER['DOCUMENT_ROOT'] . '/assets/php/pager.php';
   $helper = new Helper();
-  $pager = new Pager(3, 2, 'page');
+  $pager = new Pager(3, 1, 'page');
   $json = $_SERVER['DOCUMENT_ROOT'] . '/assets/data/test.json';
   // ----- 記事データの処理 -----
   $currentPage = $pager->getCurrentPage();
@@ -12,6 +12,8 @@
   $pager->checkParam($totalPage, './index.php');
   // ----- ページャーの処理 -----
   $pagerStart = $pager->getStartPagerNum($currentPage);
+  var_dump($pagerStart);
+  var_dump($pager->pageRange);
   $pagerEnd = $pager->getEndPagerNum($currentPage, $totalPage);
 ?>
 <!DOCTYPE html>
@@ -60,7 +62,7 @@
     <?php endif; ?>
     <!-- /1ページ目 -->
     <!-- リーダー -->
-    <?php if ($pagerStart > $pager->pageRange): ?>
+    <?php if ($pagerStart > $pager->pageRange && $pagerStart !== 2): ?>
       <li>
         <span>...</span>
       </li>
